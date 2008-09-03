@@ -49,7 +49,7 @@ sub alphabet2yomi {
     $text =~ s{(\p{Latin})}{
         my $char = $1;
         my $work = Unicode::Japanese->new($char);
-        $work = uc $work->z2hAlpha->getu;
+           $work = uc $work->z2hAlpha->getu;
         
         $alphabet2yomi->{$lang}{$work} || $char;
     }ge;
@@ -64,7 +64,7 @@ __END__
 
 =head1 NAME
 
-Lingua::JA::Alphabet::Yomi - Alphabet katakana pronunciations
+Lingua::JA::Alphabet::Yomi - Alphabet Katakana pronunciations
 
 =head1 SYNOPSIS
 
@@ -89,16 +89,20 @@ by the Japanese katakana.
 
 exportable.
 
-$lang can take B<'en'>(英語), B<'fr'>(フランス語), B<'it'>(イタリア語)
+C<$lang> can take B<'en'>(英語), B<'fr'>(フランス語), B<'it'>(イタリア語)
 and B<'de'>(ドイツ語) currently. 'en' is default.
 
 I chose the pronunciation that seemed a de facto standard it.
-but you can adjust $Lingua::JA::Alphabet::Yomi::alphabet2yomi hashref
+but you can adjust C<$Lingua::JA::Alphabet::Yomi::alphabet2yomi> hashref
 like below.
 
-  $Lingua::JA::Alphabet::Yomi::alphabet2yomi->{it}{J} = 'ヨータ';
+  local $Lingua::JA::Alphabet::Yomi::alphabet2yomi->{it}{J} = 'ヨータ';
 
 =back
+
+=head1 SEE ALSO
+
+L<http://coderepos.org/share/browser/lang/perl/Lingua-JA-Alphabet-Yomi> (repository)
 
 =head1 AUTHOR
 
@@ -108,9 +112,5 @@ Naoki Tomita E<lt>tomita@cpan.orgE<gt>
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-=head1 SEE ALSO
-
-L<http://coderepos.org/share/browser/lang/perl/Lingua-JA-Alphabet-Yomi> (repository)
 
 =cut
